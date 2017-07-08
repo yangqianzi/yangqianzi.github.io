@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="activiti," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="#Activiti的使用 ##1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;acti">
+<meta name="description" content="Activiti的使用1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;activiti">
+<meta name="keywords" content="activiti">
 <meta property="og:type" content="article">
 <meta property="og:title" content="acitiviti初认识">
 <meta property="og:url" content="http://yoursite.com/2017/07/08/acitiviti初认识/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#Activiti的使用 ##1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;acti">
-<meta property="og:updated_time" content="2017-07-08T18:28:54.708Z">
+<meta property="og:description" content="Activiti的使用1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;activiti">
+<meta property="og:updated_time" content="2017-07-08T18:40:21.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="acitiviti初认识">
-<meta name="twitter:description" content="#Activiti的使用 ##1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;acti">
+<meta name="twitter:description" content="Activiti的使用1.下载https://www.activiti.org/download-bpm 这个网页打不开 pom12345678910111213141516171819202122232425&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.activiti&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;activiti">
 
 
 
@@ -196,7 +197,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -206,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -283,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-08T23:13:29+08:00">
                 2017-07-08
@@ -321,10 +322,9 @@
       
 
       
-        <p>#Activiti的使用</p>
-<p>##1.下载<br><a href="https://www.activiti.org/download-bpm" target="_blank" rel="external">https://www.activiti.org/download-bpm</a> 这个网页打不开</p>
+        <h1 id="Activiti的使用"><a href="#Activiti的使用" class="headerlink" title="Activiti的使用"></a>Activiti的使用</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><p><a href="https://www.activiti.org/download-bpm" target="_blank" rel="external">https://www.activiti.org/download-bpm</a> 这个网页打不开</p>
 <h3 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-engine&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-spring&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-bpm-layout&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;junit&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;junit&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;4.11&lt;/version&gt;</div><div class="line">    &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<h2 id="2-配置文件：activiti-cfg-xml"><a href="#2-配置文件：activiti-cfg-xml" class="headerlink" title="2.  配置文件：activiti.cfg.xml"></a>2.  配置文件：activiti.cfg.xml</h2><p>###放在根目录下，不要放在文件包里面，不然可能找不到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line"></div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line"></div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/act&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;root&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;123&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;!-- 自动构建数据库表，设置value=&quot;true&quot;，第一次启动建表；设置value=&quot;drop-create&quot;，每次启动时建新表-&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!--以下是使用H2作为数据库，测试的时候非常好用！--&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;!--&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000&quot; /&gt;--&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:file:~/wayhb;AUTO_SERVER=TRUE&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;org.h2.Driver&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;sa&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- Database configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- job executor configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jobExecutorActivate&quot; value=&quot;false&quot; /&gt; </div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="2-配置文件：activiti-cfg-xml"><a href="#2-配置文件：activiti-cfg-xml" class="headerlink" title="2.  配置文件：activiti.cfg.xml"></a>2.  配置文件：activiti.cfg.xml</h2><h3 id="放在根目录下，不要放在文件包里面，不然可能找不到"><a href="#放在根目录下，不要放在文件包里面，不然可能找不到" class="headerlink" title="放在根目录下，不要放在文件包里面，不然可能找不到"></a>放在根目录下，不要放在文件包里面，不然可能找不到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line"></div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line"></div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/act&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;root&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;123&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;!-- 自动构建数据库表，设置value=&quot;true&quot;，第一次启动建表；设置value=&quot;drop-create&quot;，每次启动时建新表-&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!--以下是使用H2作为数据库，测试的时候非常好用！--&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;!--&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000&quot; /&gt;--&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:file:~/wayhb;AUTO_SERVER=TRUE&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;org.h2.Driver&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;sa&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- Database configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- job executor configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jobExecutorActivate&quot; value=&quot;false&quot; /&gt; </div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -351,6 +351,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/activiti/" rel="tag"># activiti</a>
+          
+        </div>
       
 
       
@@ -422,10 +428,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -446,7 +452,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -459,7 +465,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -493,7 +499,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom"><span class="nav-number">1.</span> <span class="nav-text">pom</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置文件：activiti-cfg-xml"><span class="nav-number"></span> <span class="nav-text">2.  配置文件：activiti.cfg.xml</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activiti的使用"><span class="nav-number">1.</span> <span class="nav-text">Activiti的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载"><span class="nav-number">1.1.</span> <span class="nav-text">1.下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom"><span class="nav-number">1.1.1.</span> <span class="nav-text">pom</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-配置文件：activiti-cfg-xml"><span class="nav-number">1.2.</span> <span class="nav-text">2.  配置文件：activiti.cfg.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#放在根目录下，不要放在文件包里面，不然可能找不到"><span class="nav-number">1.2.1.</span> <span class="nav-text">放在根目录下，不要放在文件包里面，不然可能找不到</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -525,7 +531,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
