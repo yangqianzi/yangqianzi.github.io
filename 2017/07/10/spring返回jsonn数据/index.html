@@ -1,0 +1,695 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="spring-boot," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Spring Boot返回json数据在做如下操作之前，我们对之前的Hello进行简单的修改，我们新建一个包com.kfit.test.web然后新建一个类HelloControoler,然后修改App.Java类，主要是的这个类就是一个单纯的启动类。 主要代码如下： ##　App.java12345678910111213141516171819202122232425262728package">
+<meta name="keywords" content="spring-boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot返回json数据">
+<meta property="og:url" content="http://yoursite.com/2017/07/10/spring返回jsonn数据/index.html">
+<meta property="og:site_name" content="小芊的博客">
+<meta property="og:description" content="Spring Boot返回json数据在做如下操作之前，我们对之前的Hello进行简单的修改，我们新建一个包com.kfit.test.web然后新建一个类HelloControoler,然后修改App.Java类，主要是的这个类就是一个单纯的启动类。 主要代码如下： ##　App.java12345678910111213141516171819202122232425262728package">
+<meta property="og:updated_time" content="2017-07-09T18:29:27.095Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Boot返回json数据">
+<meta name="twitter:description" content="Spring Boot返回json数据在做如下操作之前，我们对之前的Hello进行简单的修改，我们新建一个包com.kfit.test.web然后新建一个类HelloControoler,然后修改App.Java类，主要是的这个类就是一个单纯的启动类。 主要代码如下： ##　App.java12345678910111213141516171819202122232425262728package">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/10/spring返回jsonn数据/"/>
+
+
+
+
+
+  <title> Spring Boot返回json数据 | 小芊的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小芊的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/spring返回jsonn数据/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨芊子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小芊的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spring Boot返回json数据
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T02:22:24+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Spring-Boot返回json数据"><a href="#Spring-Boot返回json数据" class="headerlink" title="Spring Boot返回json数据"></a>Spring Boot返回json数据</h1><p>在做如下操作之前，我们对之前的Hello进行简单的修改，我们新建一个包com.kfit.test.web然后新建一个类HelloControoler,然后修改App.Java类，主要是的这个类就是一个单纯的启动类。</p>
+<p>主要代码如下：</p>
+<p>##　App.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">packagecom.kfit;</div><div class="line"></div><div class="line"></div><div class="line">importorg.springframework.boot.SpringApplication;</div><div class="line"></div><div class="line">importorg.springframework.boot.autoconfigure.SpringBootApplication;</div><div class="line"></div><div class="line">/**</div><div class="line"></div><div class="line"> * Hello world!</div><div class="line"></div><div class="line"> *</div><div class="line"></div><div class="line"> */</div><div class="line"></div><div class="line">//其中@SpringBootApplication申明让spring boot自动给程序进行必要的配置，等价于以默认属性使用@Configuration，@EnableAutoConfiguration和@ComponentScan</div><div class="line"></div><div class="line">@SpringBootApplication</div><div class="line"></div><div class="line">public class App &#123;</div><div class="line"></div><div class="line">             public static void main(String[] args) &#123;</div><div class="line"></div><div class="line">                 SpringApplication.run(App.class, args);</div><div class="line"></div><div class="line">       &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="com-kfit-test-web-HelloController："><a href="#com-kfit-test-web-HelloController：" class="headerlink" title="com.kfit.test.web.HelloController："></a>com.kfit.test.web.HelloController：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">package com.kfit.test.web;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">importorg.springframework.web.bind.annotation.RequestMapping;</div><div class="line"></div><div class="line">importorg.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">@RestController// 标记为：restful</div><div class="line"></div><div class="line">publicclass HelloController&#123;</div><div class="line"></div><div class="line">   </div><div class="line"></div><div class="line">    @RequestMapping(&quot;/&quot;)</div><div class="line"></div><div class="line">    public String hello()&#123;</div><div class="line"></div><div class="line">       return&quot;Hello world!&quot;;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行代码和之前是一样的效果的。<br>我们在编写接口的时候，时常会有需求返回json数据，那么在spring boot应该怎么操作呢？主要是在class中加入注解@RestController,。</p>
+<p>返回JSON之步骤：</p>
+<p>(1)编写一个实体类Demo<br>(2)编写DemoController；<br>(3)在DemoController加上@RestController和@RequestMapping注解；<br>(4)测试</p>
+<p>具体代码如下：</p>
+<h2 id="com-kfit-test-bean-Demo"><a href="#com-kfit-test-bean-Demo" class="headerlink" title="com.kfit.test.bean.Demo:"></a>com.kfit.test.bean.Demo:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">package com.kfit.test.bean;</div><div class="line"></div><div class="line">/**</div><div class="line"></div><div class="line"> *测试实体类.</div><div class="line"></div><div class="line"> *@author Administrator</div><div class="line"></div><div class="line"> *</div><div class="line"></div><div class="line"> */</div><div class="line"></div><div class="line">publicclass Demo &#123;</div><div class="line"></div><div class="line">    privatelong id;//主键.</div><div class="line"></div><div class="line">    private Stringname;//测试名称.</div><div class="line"></div><div class="line">    publiclong getId() &#123;</div><div class="line"></div><div class="line">       returnid;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    publicvoid setId(longid) &#123;</div><div class="line"></div><div class="line">       this.id =id;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getName() &#123;</div><div class="line"></div><div class="line">       returnname;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    publicvoid setName(String name) &#123;</div><div class="line"></div><div class="line">       this.name =name;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="com-kfit-test-web-DemoController："><a href="#com-kfit-test-web-DemoController：" class="headerlink" title="com.kfit.test.web.DemoController："></a>com.kfit.test.web.DemoController：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">package com.kfit.test.web;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">importorg.springframework.web.bind.annotation.RequestMapping;</div><div class="line"></div><div class="line">importorg.springframework.web.bind.annotation.RestController;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">importcom.kfit.test.bean.Demo;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">/**</div><div class="line"></div><div class="line"> *测试.</div><div class="line"></div><div class="line"> *@author Administrator</div><div class="line"></div><div class="line"> *</div><div class="line"></div><div class="line"> */</div><div class="line"></div><div class="line">@RestController</div><div class="line"></div><div class="line">@RequestMapping(&quot;/demo&quot;)</div><div class="line"></div><div class="line">publicclass DemoController &#123;</div><div class="line"></div><div class="line">   </div><div class="line"></div><div class="line">    /**</div><div class="line"></div><div class="line">     *返回demo数据:</div><div class="line"></div><div class="line">     *请求地址：http://127.0.0.1:8080/demo/getDemo</div><div class="line"></div><div class="line">     *@return</div><div class="line"></div><div class="line">     */</div><div class="line"></div><div class="line">    @RequestMapping(&quot;/getDemo&quot;)</div><div class="line"></div><div class="line">    public Demo getDemo()&#123;</div><div class="line"></div><div class="line">       Demo demo = new Demo();</div><div class="line"></div><div class="line">       demo.setId(1);</div><div class="line"></div><div class="line">       demo.setName(&quot;Angel&quot;);</div><div class="line"></div><div class="line">       returndemo;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么在浏览器访问地址：<a href="http://127.0.0.1:8080/demo/getDemo" target="_blank" rel="external">http://127.0.0.1:8080/demo/getDemo</a> 返回如下数据：</p>
+<p>{</p>
+<p>id: 1,</p>
+<p>name: “Angel”</p>
+<p>}</p>
+<p>是不是很神奇呢，其实Spring Boot也是引用了JSON解析包Jackson，那么自然我们就可以在Demo对象上使用Jackson提供的json属性的注解，对时间进行格式化，对一些字段进行忽略等等。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/09/activiti-spring-请假系统/" rel="next" title="activiti+spring 请假系统">
+                <i class="fa fa-chevron-left"></i> activiti+spring 请假系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/10/hexo的使用/" rel="prev" title="hexo的使用">
+                hexo的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="杨芊子" />
+          <p class="site-author-name" itemprop="name">杨芊子</p>
+           
+              <p class="site-description motion-element" itemprop="description">可爱的小芊酱写的博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot返回json数据"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot返回json数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#com-kfit-test-web-HelloController："><span class="nav-number">1.1.</span> <span class="nav-text">com.kfit.test.web.HelloController：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#com-kfit-test-bean-Demo"><span class="nav-number">1.2.</span> <span class="nav-text">com.kfit.test.bean.Demo:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#com-kfit-test-web-DemoController："><span class="nav-number">1.3.</span> <span class="nav-text">com.kfit.test.web.DemoController：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨芊子</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
