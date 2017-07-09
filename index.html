@@ -327,13 +327,17 @@
       
         
           
-            <h1 id="activiti-demo"><a href="#activiti-demo" class="headerlink" title="activiti demo"></a>activiti demo</h1><h2 id="1-总述"><a href="#1-总述" class="headerlink" title="1.总述"></a>1.总述</h2><h3 id="demo地址"><a href="#demo地址" class="headerlink" title="demo地址"></a>demo地址</h3><p><a href="https://www.oschina.net/p/kft-activiti-demo" target="_blank" rel="external">https://www.oschina.net/p/kft-activiti-demo</a></p>
-<h3 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h3><p><a href="http://v.youku.com/v_show/id_XNzQ0MTI5MTc2.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNzQ0MTI5MTc2.html</a></p>
-<h3 id="wiki地址"><a href="#wiki地址" class="headerlink" title="wiki地址"></a>wiki地址</h3><p><a href="https://github.com/henryyan/kft-activiti-demo/wiki" target="_blank" rel="external">https://github.com/henryyan/kft-activiti-demo/wiki</a></p>
-<h2 id="2-启动数据库"><a href="#2-启动数据库" class="headerlink" title="2.启动数据库"></a>2.启动数据库</h2><p>使用H2轻量级数据库，默认配置：<br><code>jdbc:h2:file:~/kft-activiti-demo;AUTO_SERVER=TRUE</code><br>初始化：<br><code>mvn antrun:run -Prefresh-db</code><br>仅插入用户角色信息：<br><code>mvn antrun:run -Pinitdatas</code></p>
-<h2 id="3-启动系统"><a href="#3-启动系统" class="headerlink" title="3.启动系统"></a>3.启动系统</h2><h3 id="使用内置Web-Server-Jetty"><a href="#使用内置Web-Server-Jetty" class="headerlink" title="使用内置Web Server- Jetty"></a>使用内置Web Server- Jetty</h3><p><code>mvn jetty:run</code><br>访问：<a href="http://localhost:8080/kft-activiti-demo" target="_blank" rel="external">http://localhost:8080/kft-activiti-demo</a></p>
-
-          
+          activiti demo1.总述demo地址https://www.oschina.net/p/kft-activiti-demo
+视频地址http://v.youku.com/v_show/id_XNzQ0MTI5MTc2.html
+wiki地址https://github.com/henryy
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/09/activiti-spring-请假系统/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -452,11 +456,16 @@
       
         
           
-            <h1 id="Activiti的使用"><a href="#Activiti的使用" class="headerlink" title="Activiti的使用"></a>Activiti的使用</h1><h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1.下载"></a>1.下载</h2><p><a href="https://www.activiti.org/download-bpm" target="_blank" rel="external">https://www.activiti.org/download-bpm</a> 这个网页打不开</p>
-<h3 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-engine&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-spring&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;activiti-bpm-layout&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;5.14.1&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">&lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;</div><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;junit&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;junit&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;4.11&lt;/version&gt;</div><div class="line">    &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
-<h2 id="2-配置文件：activiti-cfg-xml"><a href="#2-配置文件：activiti-cfg-xml" class="headerlink" title="2.  配置文件：activiti.cfg.xml"></a>2.  配置文件：activiti.cfg.xml</h2><h3 id="放在根目录下，不要放在文件包里面，不然可能找不到"><a href="#放在根目录下，不要放在文件包里面，不然可能找不到" class="headerlink" title="放在根目录下，不要放在文件包里面，不然可能找不到"></a>放在根目录下，不要放在文件包里面，不然可能找不到</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line"></div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line"></div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div><div class="line"></div><div class="line"> </div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/act&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;root&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;123&quot;/&gt;</div><div class="line"></div><div class="line">        &lt;!-- 自动构建数据库表，设置value=&quot;true&quot;，第一次启动建表；设置value=&quot;drop-create&quot;，每次启动时建新表-&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">    &lt;!--以下是使用H2作为数据库，测试的时候非常好用！--&gt;</div><div class="line"></div><div class="line">    &lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration&quot;&gt;</div><div class="line"></div><div class="line">        &lt;!--&lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000&quot; /&gt;--&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:h2:file:~/wayhb;AUTO_SERVER=TRUE&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcDriver&quot; value=&quot;org.h2.Driver&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcUsername&quot; value=&quot;sa&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jdbcPassword&quot; value=&quot;&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- Database configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;databaseSchemaUpdate&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;!-- job executor configurations --&gt;</div><div class="line"></div><div class="line">        &lt;property name=&quot;jobExecutorActivate&quot; value=&quot;false&quot; /&gt; </div><div class="line"></div><div class="line">    &lt;/bean&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
-
-          
+          Activiti的使用1.下载https://www.activiti.org/download-bpm 这个网页打不开
+pom12345678910111213141516171819202122232425&lt;dependency&gt;    &lt;groupId&gt;org.acti
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/08/acitiviti初认识/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -575,10 +584,15 @@
       
         
           
-            <h1 id="spring-boot-建立的模板"><a href="#spring-boot-建立的模板" class="headerlink" title="spring-boot 建立的模板"></a>spring-boot 建立的模板</h1><h2 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;dependencies&gt;</div><div class="line">		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">		&lt;/dependency&gt;</div><div class="line"></div><div class="line">		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</div><div class="line">			&lt;scope&gt;test&lt;/scope&gt;</div><div class="line">		&lt;/dependency&gt;</div><div class="line">		&lt;dependency&gt;</div><div class="line">			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">			&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</div><div class="line">		&lt;/dependency&gt;</div><div class="line">	&lt;/dependencies&gt;</div><div class="line"></div><div class="line">	&lt;build&gt;</div><div class="line">		&lt;plugins&gt;</div><div class="line">			&lt;plugin&gt;</div><div class="line">				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</div><div class="line">			&lt;/plugin&gt;</div><div class="line">		&lt;/plugins&gt;</div><div class="line">	&lt;/build&gt;</div></pre></td></tr></table></figure>
-<h2 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="SpringBootApplication"></a>SpringBootApplication</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@SpringBootApplication</div><div class="line">public class SpringBootDemo21Application &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		SpringApplication.run(SpringBootDemo21Application.class, args);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          spring-boot 建立的模板pom12345678910111213141516171819202122232425&lt;dependencies&gt;		&lt;dependency&gt;			&lt;groupId&gt;org.springframework.boot&lt;/gr
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/07/springboot78/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -697,8 +711,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/20/text/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -817,22 +838,16 @@
       
         
           
-            <hr>
-<h2 id="title-Hello-World"><a href="#title-Hello-World" class="headerlink" title="title: Hello World"></a>title: Hello World</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new <span class="string">"My New Post"</span>
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
           
+title: Hello WorldWelcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/19/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -923,7 +938,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
