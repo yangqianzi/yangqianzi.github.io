@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="可爱的小芊酱写的博客">
+<meta name="description" content="Hamming distance 汉明距离 题目The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance.">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot+Freemarker">
-<meta property="og:url" content="http://yoursite.com/2017/07/10/spring-boot-Freemarker/index.html">
+<meta property="og:title" content="Hamming Distance">
+<meta property="og:url" content="http://yoursite.com/2017/07/16/Hamming-Distance/index.html">
 <meta property="og:site_name" content="小芊的博客">
-<meta property="og:description" content="可爱的小芊酱写的博客">
-<meta property="og:updated_time" content="2017-07-10T15:54:00.606Z">
+<meta property="og:description" content="Hamming distance 汉明距离 题目The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance.">
+<meta property="og:updated_time" content="2017-07-16T05:28:33.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-boot+Freemarker">
-<meta name="twitter:description" content="可爱的小芊酱写的博客">
+<meta name="twitter:title" content="Hamming Distance">
+<meta name="twitter:description" content="Hamming distance 汉明距离 题目The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance.">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/10/spring-boot-Freemarker/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/16/Hamming-Distance/"/>
 
 
 
 
 
-  <title> spring-boot+Freemarker | 小芊的博客 </title>
+  <title> Hamming Distance | 小芊的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -249,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/spring-boot-Freemarker/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/16/Hamming-Distance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨芊子">
@@ -270,7 +271,7 @@
             
             
               
-                spring-boot+Freemarker
+                Hamming Distance
               
             
           </h1>
@@ -285,8 +286,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-10T23:54:00+08:00">
-                2017-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-16T13:12:51+08:00">
+                2017-07-16
               </time>
             
 
@@ -321,7 +322,15 @@
       
 
       
-        
+        <p>Hamming distance 汉明距离</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
+<p>Given two integers x and y, calculate the Hamming distance.</p>
+<p>Note:<br>0 ≤ x, y &lt; 231.</p>
+<p>Example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Input: x = 1, y = 4</div><div class="line"></div><div class="line">Output: 2</div><div class="line"></div><div class="line">Explanation:</div><div class="line">1   (0 0 0 1)</div><div class="line">4   (0 1 0 0)</div><div class="line">       ?   ?</div><div class="line"></div><div class="line">The above arrows point to positions where the corresponding bits are different.</div></pre></td></tr></table></figure></p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>此题考察的是知识点是运算符，特别是异或运算符^<br>异或运算符作用为“相同出0，不同出1”，这个特性正好可以用来解题<br>那么正常的思路就是将x，y两数进行异或运算，然后统计1的出现次数</p>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public int hammingDistance(int x, int y) &#123;</div><div class="line">    int xor = x ^ y, count = 0;</div><div class="line">    for (int i=0;i&lt;32;i++) count += (xor &gt;&gt; i) &amp; 1;</div><div class="line">    return count;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个解法将异或结果一个个移位，然后和1和运算，自然相同为1，不同为0，然后用count器加上这个相同的1自然就是“1出现的次数”</p>
+
       
     </div>
 
@@ -348,6 +357,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
 
       
         
@@ -357,8 +372,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/10/hexo的使用/" rel="next" title="hexo的使用">
-                <i class="fa fa-chevron-left"></i> hexo的使用
+              <a href="/2017/07/12/idea如何把一个普通项目转化为maven项目/" rel="next" title="idea如何把一个普通项目转化为maven项目">
+                <i class="fa fa-chevron-left"></i> idea如何把一个普通项目转化为maven项目
               </a>
             
           </div>
@@ -367,8 +382,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/11/Spring-boot提交表单/" rel="prev" title="Spring-boot提交表单">
-                Spring-boot提交表单 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/16/Merge-Two-Binary-Trees/" rel="prev" title="Merge Two Binary Trees">
+                Merge Two Binary Trees <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -416,8 +431,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -470,6 +494,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">3.</span> <span class="nav-text">解法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
