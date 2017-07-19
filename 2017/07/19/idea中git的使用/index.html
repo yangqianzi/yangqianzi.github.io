@@ -1,0 +1,691 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="idea,git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在git上添加自己的ssh创建ssh在gitbash下输入git config –global user.name “yourname”git config –global user.email “your email”ssh-keygen -t rsa -C “your email” 找到ssh在 C:\Users{user}.ssh 找到 id_rsa.pub复制里面的ssh 复制进git登录">
+<meta name="keywords" content="idea,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="idea中git的使用">
+<meta property="og:url" content="http://yoursite.com/2017/07/19/idea中git的使用/index.html">
+<meta property="og:site_name" content="小芊的博客">
+<meta property="og:description" content="在git上添加自己的ssh创建ssh在gitbash下输入git config –global user.name “yourname”git config –global user.email “your email”ssh-keygen -t rsa -C “your email” 找到ssh在 C:\Users{user}.ssh 找到 id_rsa.pub复制里面的ssh 复制进git登录">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/profile%20setting.png?sign=AJ90E8/CCaxH75x1HVaN5LewEXVhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTM1ODI1ODIxNyZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvcHJvZmlsZSUyMHNldHRpbmcucG5nJmI9eGlhb3FpYW5ibG9n">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/ssh.png?sign=+S1GKXYk06/tgPlg0+KBHjgVd9xhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTU4MTQ1MjQ1MiZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvc3NoLnBuZyZiPXhpYW9xaWFuYmxvZw==">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png?sign=8F0hfNeMubLYKKOOEJJWkIXng4phPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTIxMTY0ODU5MzImZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNSU4OCU5QiVFNSVCQiVCQSVFNiU5QyVBQyVFNSU5QyVCMCVFNCVCQiU5MyVFNSVCQSU5My5wbmcmYj14aWFvcWlhbmJsb2c=">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E6%89%BE%E5%9D%97%E4%BD%8D%E7%BD%AE%E6%94%BE%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6.png?sign=kn1j65CLlMKaUtCFKIIgnC3EnethPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTEwMzE1MzQ2MzkmZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNiU4OSVCRSVFNSU5RCU5NyVFNCVCRCU4RCVFNyVCRCVBRSVFNiU5NCVCRSVFNiU5QyVBQyVFNSU5QyVCMCVFNiU5NiU4NyVFNCVCQiVCNi5wbmcmYj14aWFvcWlhbmJsb2c=">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%8F%B3%E9%94%AE%E9%A1%B9%E7%9B%AE.png?sign=uTNC0pmcLQHpC/s1s8U33IgJB7xhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTI0MDcwMjEyOCZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvJUU1JThGJUIzJUU5JTk0JUFFJUU5JUExJUI5JUU3JTlCJUFFLnBuZyZiPXhpYW9xaWFuYmxvZw==">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%A1%AB%E5%86%99%E4%BF%AE%E6%94%B9%E4%BF%A1%E6%81%AF.png?sign=WjaPXDK06vedMGdsco2eDyLhf9lhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTExMjQxOTIyNzMmZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNSVBMSVBQiVFNSU4NiU5OSVFNCVCRiVBRSVFNiU5NCVCOSVFNCVCRiVBMSVFNiU4MSVBRi5wbmcmYj14aWFvcWlhbmJsb2c=">
+<meta property="og:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%A1%AB%E5%86%99%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png?sign=w0EZpOUDVYGWBTDmRg3a0fPrjCthPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTI2MzI2ODE5MCZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvJUU1JUExJUFCJUU1JTg2JTk5JUU0JUJEJThEJUU3JUJEJUFFJUU0JUJGJUExJUU2JTgxJUFGLnBuZyZiPXhpYW9xaWFuYmxvZw==">
+<meta property="og:updated_time" content="2017-07-19T02:45:01.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="idea中git的使用">
+<meta name="twitter:description" content="在git上添加自己的ssh创建ssh在gitbash下输入git config –global user.name “yourname”git config –global user.email “your email”ssh-keygen -t rsa -C “your email” 找到ssh在 C:\Users{user}.ssh 找到 id_rsa.pub复制里面的ssh 复制进git登录">
+<meta name="twitter:image" content="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/profile%20setting.png?sign=AJ90E8/CCaxH75x1HVaN5LewEXVhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTM1ODI1ODIxNyZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvcHJvZmlsZSUyMHNldHRpbmcucG5nJmI9eGlhb3FpYW5ibG9n">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/19/idea中git的使用/"/>
+
+
+
+
+
+  <title> idea中git的使用 | 小芊的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小芊的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/19/idea中git的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨芊子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小芊的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                idea中git的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-19T09:54:23+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="在git上添加自己的ssh"><a href="#在git上添加自己的ssh" class="headerlink" title="在git上添加自己的ssh"></a>在git上添加自己的ssh</h1><h2 id="创建ssh"><a href="#创建ssh" class="headerlink" title="创建ssh"></a>创建ssh</h2><p>在gitbash下输入<br>git config –global user.name “yourname”<br>git config –global user.email “your email”<br>ssh-keygen -t rsa -C “your email”</p>
+<h2 id="找到ssh"><a href="#找到ssh" class="headerlink" title="找到ssh"></a>找到ssh</h2><p>在 C:\Users{user}.ssh 找到 id_rsa.pub<br>复制里面的ssh</p>
+<h2 id="复制进git"><a href="#复制进git" class="headerlink" title="复制进git"></a>复制进git</h2><p>登录git<br>选择profile setting<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/profile%20setting.png?sign=AJ90E8/CCaxH75x1HVaN5LewEXVhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTM1ODI1ODIxNyZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvcHJvZmlsZSUyMHNldHRpbmcucG5nJmI9eGlhb3FpYW5ibG9n" alt=""><br>把ssh复制进git<img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/ssh.png?sign=+S1GKXYk06/tgPlg0+KBHjgVd9xhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTU4MTQ1MjQ1MiZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvc3NoLnBuZyZiPXhpYW9xaWFuYmxvZw==" alt=""></p>
+<h1 id="在idea中添加git"><a href="#在idea中添加git" class="headerlink" title="在idea中添加git"></a>在idea中添加git</h1><h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><p>创建好项目，选择VCS - &gt; Import into Version Control -&gt; Create Git Repository<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png?sign=8F0hfNeMubLYKKOOEJJWkIXng4phPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTIxMTY0ODU5MzImZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNSU4OCU5QiVFNSVCQiVCQSVFNiU5QyVBQyVFNSU5QyVCMCVFNCVCQiU5MyVFNSVCQSU5My5wbmcmYj14aWFvcWlhbmJsb2c=" alt=""><br>然后找块位置放本地仓库<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E6%89%BE%E5%9D%97%E4%BD%8D%E7%BD%AE%E6%94%BE%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6.png?sign=kn1j65CLlMKaUtCFKIIgnC3EnethPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTEwMzE1MzQ2MzkmZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNiU4OSVCRSVFNSU5RCU5NyVFNCVCRCU4RCVFNyVCRCVBRSVFNiU5NCVCRSVFNiU5QyVBQyVFNSU5QyVCMCVFNiU5NiU4NyVFNCVCQiVCNi5wbmcmYj14aWFvcWlhbmJsb2c=" alt=""></p>
+<h2 id="将项目添加进本地仓库"><a href="#将项目添加进本地仓库" class="headerlink" title="将项目添加进本地仓库"></a>将项目添加进本地仓库</h2><p>右键项目或选中项目,然后 vcs-&gt;git-&gt;add<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%8F%B3%E9%94%AE%E9%A1%B9%E7%9B%AE.png?sign=uTNC0pmcLQHpC/s1s8U33IgJB7xhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTI0MDcwMjEyOCZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvJUU1JThGJUIzJUU5JTk0JUFFJUU5JUExJUI5JUU3JTlCJUFFLnBuZyZiPXhpYW9xaWFuYmxvZw==" alt=""></p>
+<h2 id="上传项目"><a href="#上传项目" class="headerlink" title="上传项目"></a>上传项目</h2><p>vcs-&gt;git-&gt;commit directory<br>填写修改信息,commit and push<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%A1%AB%E5%86%99%E4%BF%AE%E6%94%B9%E4%BF%A1%E6%81%AF.png?sign=WjaPXDK06vedMGdsco2eDyLhf9lhPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTExMjQxOTIyNzMmZj0vJUU1JThEJTlBJUU1JUFFJUEyJUU3JTk0JUE4JUU1JTlCJUJFLyVFNSVBMSVBQiVFNSU4NiU5OSVFNCVCRiVBRSVFNiU5NCVCOSVFNCVCRiVBMSVFNiU4MSVBRi5wbmcmYj14aWFvcWlhbmJsb2c=" alt=""><br>填写位置信息(从git上面复制下来)<br><img src="http://xiaoqianblog-1253475779.cosgz.myqcloud.com/%E5%8D%9A%E5%AE%A2%E7%94%A8%E5%9B%BE/%E5%A1%AB%E5%86%99%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF.png?sign=w0EZpOUDVYGWBTDmRg3a0fPrjCthPTEyNTM0NzU3Nzkmaz1BS0lENTN0ZFE4cnRZMlFkZWdzM2xSME9hZDhVZWVXRGszREMmZT0xNTAzMDIzNDY4JnQ9MTUwMDQzMTQ2OCZyPTI2MzI2ODE5MCZmPS8lRTUlOEQlOUElRTUlQUUlQTIlRTclOTQlQTglRTUlOUIlQkUvJUU1JUExJUFCJUU1JTg2JTk5JUU0JUJEJThEJUU3JUJEJUFFJUU0JUJGJUExJUU2JTgxJUFGLnBuZyZiPXhpYW9xaWFuYmxvZw==" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/idea/" rel="tag"># idea</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/springboot之CROS/" rel="next" title="springboot之servlets,fifters,listeners">
+                <i class="fa fa-chevron-left"></i> springboot之servlets,fifters,listeners
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="杨芊子" />
+          <p class="site-author-name" itemprop="name">杨芊子</p>
+           
+              <p class="site-description motion-element" itemprop="description">可爱的小芊酱写的博客</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在git上添加自己的ssh"><span class="nav-number">1.</span> <span class="nav-text">在git上添加自己的ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建ssh"><span class="nav-number">1.1.</span> <span class="nav-text">创建ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找到ssh"><span class="nav-number">1.2.</span> <span class="nav-text">找到ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制进git"><span class="nav-number">1.3.</span> <span class="nav-text">复制进git</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在idea中添加git"><span class="nav-number">2.</span> <span class="nav-text">在idea中添加git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建本地仓库"><span class="nav-number">2.1.</span> <span class="nav-text">创建本地仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将项目添加进本地仓库"><span class="nav-number">2.2.</span> <span class="nav-text">将项目添加进本地仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传项目"><span class="nav-number">2.3.</span> <span class="nav-text">上传项目</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨芊子</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
